@@ -1,0 +1,33 @@
+footer .hover-underline:hover {
+    text-decoration: underline !important;
+    text-underline-offset: 3px;
+  }
+  
+  footer .social-icon {
+    text-decoration: none;
+  }
+  
+  footer .transition-all {
+    transition: all 0.3s ease;
+  }
+  
+  footer .hover-bg-primary:hover {
+    background-color: var(--pc) !important;
+    transform: translateY(-3px);
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .call-to-action {
+      background-attachment: scroll;
+    }
+  
+    footer h4 {
+      margin-top: 1rem;
+    }
+  }
+  
+
+  .border-primary{
+    border-color: var(--pc) !important;
+  }

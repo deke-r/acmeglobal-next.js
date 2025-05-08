@@ -1,47 +1,78 @@
-'use client';
-import { FaCheckSquare } from 'react-icons/fa';
-
+import Image from "next/image";
+import { CheckSquare } from "lucide-react";
 
 const AboutSection = ({
-  title = 'OUR VISION',
-  imageSrc = '/images/corporate1.webp', 
-  description,
-  valuesTitle = 'Our Values',
-  valuesSubtitle = 'MIND MEETS HEART',
-  valuesList = [],
+  id = "about-section",
+  image = "/images/corporate1.webp",
+  imageAlt = "About Us",
+  heading = "About Us",
+  highlightedText = "",
+  paragraphs = [],
+  points = [],
 }) => {
+  const half = Math.ceil(points.length / 2);
+  const leftPoints = points.slice(0, half);
+  const rightPoints = points.slice(half);
+
   return (
-    <section id="about-section" className="py-5 bg-white">
+    <section className="py-5 py-md-6 bg-light" id={id}>
       <div className="container">
-        <div className="row mb-4">
-          <div className="col text-center">
-            <h2 className="fw-semibold">{title}</h2>
-          </div>
-        </div>
-        <div className="row align-items-start gy-4">
-          <div className="col-md-5">
-            <div className="about-img">
-              <img
-                src='/images/corporate1.webp'
-                alt="about section"
-                className="img-fluid rounded shadow"
-                style={{ height: '450px', width: '100%', objectFit: 'cover' }}
+        <div className="row align-items-center">
+          <div className="col-lg-5 mb-4 mb-lg-0">
+            <div className="card border-0 shadow-sm overflow-hidden">
+              <Image
+                src={image}
+                width={600}
+                height={400}
+                alt={imageAlt}
+                className="img-fluid"
               />
             </div>
           </div>
-          <div className="col-md-7">
-            {description && <p className="lead text-muted f_14 fw-semibold">{description}</p>}
-            <div>
-              <h2 className="h4 fw-semibold f_20">{valuesTitle}</h2>
-              <h4 className="h5 text-muted mb-3 f_20">{valuesSubtitle}</h4>
-              <ul className="list-unstyled">
-                {valuesList.map((item, index) => (
-                  <li key={index} className="d-flex mb-2">
-                    <FaCheckSquare className="text-dark me-2 mt-1" />
-                    <span className='f_14 fw-semibold'>{item}</span>
-                  </li>
-                ))}
-              </ul>
+          <div className="col-lg-7">
+            <div className="ps-lg-4">
+              <h2 className="fw-bold mb-4">
+                {heading}{" "}
+                {highlightedText && <span className="tpc">{highlightedText}</span>}
+              </h2>
+
+              {paragraphs.map((para, i) => (
+                <p key={i} className={i === 0 ? " mb-4 fw-semibold text-muted f_15" : "mb-4 fw-semibold text-muted f_15"}>
+                  {para}
+                </p>
+              ))}
+
+              {points.length > 0 && (
+                <div className="mt-5">
+                  <h4 className="fw-bold mb-3">What Makes Us Different?</h4>
+                  <div className="row">
+                    <div className="col-md-6">
+                      <ul className="list-unstyled">
+                        {leftPoints.map((item, idx) => (
+                          <li className="mb-2" key={idx}>
+                            <div className="d-flex align-items-center">
+                              <CheckSquare className="tpc me-2" size={20} />
+                              <span className="f_15 fw-semibold text-muted">{item}</span>
+                            </div>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div className="col-md-6">
+                      <ul className="list-unstyled">
+                        {rightPoints.map((item, idx) => (
+                          <li className="mb-2" key={idx}>
+                            <div className="d-flex align-items-center">
+                              <CheckSquare className="tpc me-2" size={20} />
+                              <span className="f_15 fw-semibold text-muted">{item}</span>
+                            </div>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>

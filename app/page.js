@@ -1,10 +1,35 @@
+export const metadata = {
+  title: 'Acme Global | Digital Marketing and Advertising',
+  description: 'We want to be recognized for our contribution to the digital economy of India. We want to be acknowledged and respected for the value we bring to Indian business and society.',
+  author: 'Sense Project Pvt Ltd',
+  viewport: 'width=device-width, initial-scale=1, maximum-scale=1',
+  openGraph: {
+    title: 'Acme Global | Digital Marketing and Advertising',
+    description: 'We want to be recognized for our contribution to the digital economy of India. We want to be acknowledged and respected for the value we bring to Indian business and society.',
+    url: 'https://acmeglobal.in/',
+    images: ['/images/swello-VW7ll65EAwA-unsplash.webp'],
+    site_name: 'Acme Global',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    site: '@acmeglobal',
+    title: 'Acme Global | Digital Marketing and Advertising',
+    description: 'We want to be recognized for our contribution to the digital economy of India. We want to be acknowledged and respected for the value we bring to Indian business and society.',
+    image: '/images/swello-VW7ll65EAwA-unsplash.webp',
+  },
+};
+
+
+
+
+
 import Banner from '@/components/Banner';
 import bannerImage from '../public/images/banner.webp';
 import AboutSection from '@/components/AboutSection';
 import PortfolioSection from '@/components/PortfolioSection';
 import OurServicesSection from '@/components/OurServicesSection';
-import Testimonials from '@/components/Testimonials';
 import ClientLogos from '@/components/ClientLogo';
+import TestimonialsSection from '@/components/TestimonialsSection';
 
 const values = [
     'From a logical data-driven strategy and emotion-driven creatives to a perfect execution for desired results, we work hard to keep adding value to your brand.',
@@ -27,14 +52,24 @@ export default function Page() {
                 buttonLink="/contact"
                 backgroundImage={bannerImage.src}
             />
-            <AboutSection
-                title="OUR VISION"
-                imageSrc="/asset/images/corporate1.jpg"
-                description="We accelerate digital media advertising to globalize your marketing dream. Get an overall digital marketing platform to estimate worldwide branding. We allocate a fast-growing digital frequency to get max revenue. "
-                valuesTitle="Our Values"
-                valuesSubtitle="MIND MEETS HEART"
-                valuesList={values}
-            />
+
+
+
+<AboutSection
+      image="/images/corporate1.webp"
+      imageAlt="About Acme Global"
+      heading="OUR"
+      highlightedText="VISION"
+      paragraphs={[
+        "We accelerate digital media advertising to globalize your marketing dream. Get an overall digital marketing platform to estimate worldwide branding. We allocate a fast-growing digital frequency to get max revenue. ",
+      ]}
+      points={values}
+    />
+
+
+
+
+
             <div className="container-fluid py-5 container-2 position-relative">
                 {/* Black overlay */}
                 <div style={{
@@ -110,7 +145,7 @@ export default function Page() {
 <OurServicesSection/>
 
 
-<Testimonials/>
+<TestimonialsSection/>
 
 <ClientLogos/>
 

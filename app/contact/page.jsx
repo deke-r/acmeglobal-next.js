@@ -1,37 +1,41 @@
+export const metadata = {
+  title: 'Contact Us | Acme Global',
+  description: 'We want to be recognized for our contribution to the digital economy of India. We want to be acknowledged and respected for the value we bring to Indian business and society.',
+  author: 'Sense Project Pvt Ltd',
+  viewport: 'width=device-width, initial-scale=1, maximum-scale=1',
+  openGraph: {
+    title: 'Contact Us | Acme Global',
+    description: 'We want to be recognized for our contribution to the digital economy of India. We want to be acknowledged and respected for the value we bring to Indian business and society.',
+    url: 'https://acmeglobal.in/contact',
+    images: ['/images/swello-VW7ll65EAwA-unsplash.webp'],
+    site_name: 'Acme Global',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    site: '@acmeglobal',
+    title: 'Contact Us | Acme Global',
+    description: 'We want to be recognized for our contribution to the digital economy of India. We want to be acknowledged and respected for the value we bring to Indian business and society.',
+    image: '/images/swello-VW7ll65EAwA-unsplash.webp',
+  },
+};
+
+
+
+
 import Link from "next/link"
 import ContactForm from "../../components/ContactForm"
 import { MapPin, Phone, Mail } from "lucide-react"
 import '../../styles/contact.css'
-
+import PageBanner from "../../components/PageBanner";
 export default function ContactPage() {
   return (
     <div className="contact-page">
-      {/* Banner Section */}
-      <div className="banner-contact position-relative mb-5">
-        <div
-          className="bg-primary text-white py-5"
-          style={{
-            backgroundImage: "linear-gradient(135deg, #FF432E 0%, #FF7857 100%)",
-            height: "250px",
-          }}
-        >
-          <div className="container h-100 d-flex flex-column justify-content-center align-items-center">
-            <h1 className="display-4 fw-bold text-center">Contact Us</h1>
-            <nav aria-label="breadcrumb">
-              <ol className="breadcrumb">
-                <li className="breadcrumb-item">
-                  <Link href="/" className="text-white fw-semibold text-decoration-none">
-                    Home
-                  </Link>
-                </li>
-                <li className="breadcrumb-item active fw-semibold text-white" aria-current="page">
-                  Contact
-                </li>
-              </ol>
-            </nav>
-          </div>
-        </div>
-      </div>
+   
+   <PageBanner
+        image="/images/kk.webp"
+        title="Contact Us"
+        pageName="Contact"
+      />
 
       {/* Contact Section */}
       <div className="container py-5">
